@@ -1,0 +1,11 @@
+{
+  "name": "iot-hub-c-edison-getting-started",
+  "version": "1.0.0",
+  "description": "Node.js sample codes for getting started with Azure IoT Hub on Intel Edison board",
+  "main": "gulpfile.js",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1"
+  }
+}
