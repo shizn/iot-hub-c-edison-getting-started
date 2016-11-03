@@ -1,6 +1,6 @@
 ---
 services: iot-hub
-platforms: c
+platforms: C
 author: ZhijunZhao
 ---
 
