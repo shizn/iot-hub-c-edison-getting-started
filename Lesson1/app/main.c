@@ -20,8 +20,10 @@ int main(int argc, char *argv[])
     {
         printf("[Device] #%d Blink LED \n", blinkNumber);
         mraa_gpio_write(context, 1);
-        usleep(200000); // light on the LED for 0.2 second
+        usleep(100000); // light on the LED for 0.1 second
         mraa_gpio_write(context, 0);
-        sleep(2); // turn off the LED for 2 seconds
+        usleep(2000000); // turn off the LED for 2 seconds
     }
+
+    return 0;
 }

@@ -27,7 +27,7 @@ static void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void *userCon
     if (IOTHUB_CLIENT_CONFIRMATION_OK == result)
     {
         mraa_gpio_write(context, 1);
-        usleep(100000); // light on the LED for 0.1 seconds.
+        usleep(100000); // light on the LED for 0.1 second
         mraa_gpio_write(context, 0);
     }
     else
@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
                 }
 
                 IoTHubClient_LL_DoWork(iotHubClientHandle);
-                usleep(100000);
+                usleep(100000); // sleep for 0.1 second
             }
 
             IoTHubClient_LL_Destroy(iotHubClientHandle);
