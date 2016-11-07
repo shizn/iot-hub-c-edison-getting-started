@@ -50,7 +50,7 @@ static void sendMessageAndBlink(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle)
 {
     // TODO: change the message.
     char buffer[256];
-    sprintf(buffer, "{ deviceId: %s, messageId: %d }", "myedisonboard", totalBlinkTimes);
+    sprintf(buffer, "{\"deviceId\":\"%s\",\"messageId\":%d}", "myedisonboard", totalBlinkTimes);
 
     IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromByteArray(buffer, strlen(buffer));
     if (messageHandle == NULL)
