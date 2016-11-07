@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <sys/time.h>
 #include <mraa.h>
 
 #include "azure_c_shared_utility/platform.h"
@@ -21,6 +21,14 @@ int totalBlinkTimes = 1;
 int lastMessageSentTime = 0;
 bool messagePending = false;
 mraa_gpio_context context;
+
+int getTimeInSecond()
+{
+    struct timeval now;
+    gettimeofday(&now, NULL);
+
+    return now.tv_sec;
+}
 
 static void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void *userContextCallback)
 {
@@ -66,14 +74,6 @@ static void sendMessageAndBlink(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle)
     }
 }
 
-int getTimeInSecond()
-{
-    struct timeval now;
-    gettimeofday(&now, NULL);
-
-    return now.tv_sec;
-}
-
 int main(int argc, char *argv[])
 {
     if (argc < 2)
@@ -82,6 +82,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    // Initialize GPIO and set its direction to output
     context = mraa_gpio_init(LED_PIN);
     mraa_gpio_dir(context, MRAA_GPIO_OUT);
 

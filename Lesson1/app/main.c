@@ -4,7 +4,6 @@
 
 #include <stdio.h>
 #include <stdbool.h>
-#include <time.h>
 #include <mraa.h>
 
 #define MAX_BLINK_TIMES 20
@@ -12,6 +11,7 @@
 
 int main(int argc, char *argv[])
 {
+    // Initialize GPIO and set its direction to output
     mraa_gpio_context context = mraa_gpio_init(LED_PIN);
     mraa_gpio_dir(context, MRAA_GPIO_OUT);
 

@@ -4,7 +4,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <mraa.h>
 
 #include "azure_c_shared_utility/platform.h"
@@ -80,6 +79,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    // Initialize GPIO and set its direction to output
     context = mraa_gpio_init(LED_PIN);
     mraa_gpio_dir(context, MRAA_GPIO_OUT);
 
