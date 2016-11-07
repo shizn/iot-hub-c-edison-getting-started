@@ -11,12 +11,12 @@ This sample repo accompanies [Lesson 1: Configure your device] lesson. It shows 
 - `app` sub-folder contains the sample main.c application that blinks the LED attached to the Edison board and the CMakeLists.txt that builds the main.c source code.
 
 ## Running this sample
-Please follow the [Lesson 1: Configure your device] for detailed walkthough of the steps below.
+Please follow the [Lesson 1: Configure your device] for detailed walkthrough of the steps below.
 
 ### Install required tools
 
 ```bash
-npm install -g device-discovery-cli gulp
+npm install -g gulp
 ```
 
 ### Deploy and run

@@ -18,7 +18,7 @@ See [Lesson 3: Send device-to-cloud messages]() for more information.
 - `ReceiveDeviceMessages` sub-folder contains Node.js code for the Azure function.
 
 ## Running this sample
-Please follow the [Lesson 3: Send device-to-cloud messages]() for detailed walkthough of the steps below.
+Please follow the [Lesson 3: Send device-to-cloud messages]() for detailed walkthrough of the steps below.
 
 ### Deploy and run
 

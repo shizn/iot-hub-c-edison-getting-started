@@ -14,7 +14,7 @@ See [Lesson 4: Send cloud-to-device messages]() for more information.
 - `app` sub-folder contains the sample C application that receives cloud-2-device messages and the CMakeLists.txt that builds the main.c source code.
 
 ## Running this sample
-Please follow the [Lesson 4: Send cloud-to-device messages]() for detailed walkthough of the steps below.
+Please follow the [Lesson 4: Send cloud-to-device messages]() for detailed walkthrough of the steps below.
 
 ### Deploy and run
 
