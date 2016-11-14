@@ -5,8 +5,7 @@ author: ZhijunZhao
 ---
 
 # Send device-to-cloud messages
-This sample repo accompanies [Lesson 3: Send device-to-cloud messages]() lesson. It shows how to send messages from an Intel Edison board to Azure IoT hub. It also demonstrates how to use an Azure function app to receive incoming IoT hub messages and persist them
-to Azure table storage.
+This sample repo accompanies [Lesson 3: Send device-to-cloud messages]() lesson. It shows how to send messages from an Intel Edison board to Azure IoT hub. It also demonstrates how to use an Azure function app to receive incoming IoT hub messages and persist them to Azure table storage.
 
 ## Prerequisites
 See [Lesson 3: Send device-to-cloud messages]() for more information.
