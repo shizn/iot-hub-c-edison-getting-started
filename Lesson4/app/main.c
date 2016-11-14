@@ -15,7 +15,7 @@
 #include "iothubtransporthttp.h"
 #include "jsondecoder.h"
 
-const int LED_PIN = 13;
+static const int LED_PIN = 13;
 
 static bool lastMessageReceived = false;
 static mraa_gpio_context context;

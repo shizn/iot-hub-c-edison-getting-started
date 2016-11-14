@@ -14,8 +14,8 @@
 #include "iothub_message.h"
 #include "iothubtransporthttp.h"
 
-#define MAX_BLINK_TIMES 20
-#define LED_PIN 13
+static const int MAX_BLINK_TIMES = 20;
+static const int LED_PIN = 13;
 
 static int totalBlinkTimes = 1;
 static int lastMessageSentTime = 0;

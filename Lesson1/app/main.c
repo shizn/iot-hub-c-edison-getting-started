@@ -6,8 +6,8 @@
 #include <stdbool.h>
 #include <mraa.h>
 
-#define MAX_BLINK_TIMES 20
-#define LED_PIN 13
+static const int MAX_BLINK_TIMES = 20;
+static const int LED_PIN = 13;
 
 int main(int argc, char *argv[])
 {
