@@ -48,7 +48,7 @@
     "functionAppName": "[concat(parameters('resoucePrefix'), 'functionApp')]",
     "receiveDeviceMessagesFunction": "ReceiveDeviceMessages",
     "repoUrl": "https://github.com/Azure-Samples/iot-hub-c-edison-getting-started",
-    "branch": "zhijzhao-arm"
+    "branch": "master"
   },
   "resources": [
     {
