@@ -17,8 +17,8 @@
 
 const int LED_PIN = 13;
 
-bool lastMessageReceived = false;
-mraa_gpio_context context;
+static bool lastMessageReceived = false;
+static mraa_gpio_context context;
 
 static void blinkLED()
 {

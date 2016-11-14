@@ -17,10 +17,10 @@
 #define MAX_BLINK_TIMES 20
 #define LED_PIN 13
 
-int totalBlinkTimes = 1;
-int lastMessageSentTime = 0;
-bool messagePending = false;
-mraa_gpio_context context;
+static int totalBlinkTimes = 1;
+static int lastMessageSentTime = 0;
+static bool messagePending = false;
+static mraa_gpio_context context;
 
 int getTimeInSecond()
 {
