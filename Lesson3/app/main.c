@@ -46,11 +46,10 @@ static void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void *userCon
     messagePending = false;
 }
 
-static void sendMessageAndBlink(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle)
+static void sendMessageAndBlink(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, char* deviceId)
 {
-    // TODO: change the message.
     char buffer[256];
-    sprintf(buffer, "{\"deviceId\":\"%s\",\"messageId\":%d}", "myedisonboard", totalBlinkTimes);
+    sprintf(buffer, "{\"deviceId\":\"%s\",\"messageId\":%d}", deviceId, totalBlinkTimes);
 
     IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromByteArray(buffer, strlen(buffer));
     if (messageHandle == NULL)
@@ -76,9 +75,10 @@ static void sendMessageAndBlink(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle)
 
 int main(int argc, char *argv[])
 {
-    if (argc < 2)
+    // argv[1] is the device id and argv[2] is the connection string.
+    if (argc < 3)
     {
-        printf("[Device] IoT Hub connection string should be passed as a parameter\r\n");
+        printf("[Device] IoT Hub device id and connection string should be passed as parameters\r\n");
         return 1;
     }
 
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
         (void)printf("Starting the IoTHub client sample HTTP...\r\n");
 
         IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle;
-        if ((iotHubClientHandle = IoTHubClient_LL_CreateFromConnectionString(argv[1], HTTP_Protocol)) == NULL)
+        if ((iotHubClientHandle = IoTHubClient_LL_CreateFromConnectionString(argv[2], HTTP_Protocol)) == NULL)
         {
             (void)printf("ERROR: iotHubClientHandle is NULL!\r\n");
         }
@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
             {
                 if ((lastMessageSentTime + 2 <= getTimeInSecond()) && !messagePending)
                 {
-                    sendMessageAndBlink(iotHubClientHandle);
+                    sendMessageAndBlink(iotHubClientHandle, argv[1]);
                     totalBlinkTimes++;
                 }
 
