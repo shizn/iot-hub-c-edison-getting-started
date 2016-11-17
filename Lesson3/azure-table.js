@@ -16,6 +16,8 @@ var readAzureTable = function (config) {
   var timestamp = moment.utc().format('hhmmssSSS');
 
   var readNewMessages = function () {
+    if (stopReadAzureTable) return;
+
     var tableName = 'DeviceData';
     var condition = 'PartitionKey eq ? and RowKey gt ? ';
     // Only query messages that're no later than the current time
@@ -28,6 +30,7 @@ var readAzureTable = function (config) {
         } else {
           console.error('[Azure Table] ERROR:\n' + error);
         }
+
         readNewMessages();
         return;
       }
@@ -43,11 +46,10 @@ var readAzureTable = function (config) {
           }
         }
       }
-      if (!stopReadAzureTable) {
-        readNewMessages();
-      }
+
+      readNewMessages();
     });
-  }
+  };
 
   readNewMessages();
 }
