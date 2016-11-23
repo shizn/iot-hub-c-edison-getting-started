@@ -12,8 +12,10 @@
 #include "iothub_client.h"
 #include "iothub_client_options.h"
 #include "iothub_message.h"
-#include "iothubtransporthttp.h"
+#include "iothubtransportmqtt.h"
 #include "jsondecoder.h"
+
+#include "certs.h"
 
 static const int LED_PIN = 13;
 
@@ -85,7 +87,7 @@ int main(int argc, char *argv[])
 
     IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle;
 
-    (void)printf("[Device] Starting the IoTHub client sample HTTP...\r\n");
+    (void)printf("[Device] Starting the IoTHub client sample MQTT...\r\n");
 
     if (platform_init() != 0)
     {
@@ -93,14 +95,17 @@ int main(int argc, char *argv[])
     }
     else
     {
-        if ((iotHubClientHandle = IoTHubClient_LL_CreateFromConnectionString(argv[1], HTTP_Protocol)) == NULL)
+        if ((iotHubClientHandle = IoTHubClient_LL_CreateFromConnectionString(argv[1], MQTT_Protocol)) == NULL)
         {
             (void)printf("[Device] ERROR: iotHubClientHandle is NULL!\r\n");
         }
         else
         {
-            unsigned int minimumPollingTime = 1; // poll message right away instead of waiting
-            IoTHubClient_LL_SetOption(iotHubClientHandle, OPTION_MIN_POLLING_TIME, &minimumPollingTime);
+            if (IoTHubClient_LL_SetOption(iotHubClientHandle, "TrustedCerts", certificates) != IOTHUB_CLIENT_OK)
+            {
+                printf("failure to set option \"TrustedCerts\"\r\n");
+            }
+
             IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, receiveMessageCallback, NULL);
 
             while (!lastMessageReceived)

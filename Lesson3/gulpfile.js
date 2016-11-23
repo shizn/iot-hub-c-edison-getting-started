@@ -30,7 +30,7 @@ gulpCommon(gulp, 'edison-c', {
     "iot_hub_consumer_group_name": "cg1"
   },
   configPostfix: configPostfix,
-  app: ['main.c', 'CMakeLists.txt'],
+  app: ['main.c', 'certs.h', 'certs.c', 'CMakeLists.txt'],
   // TODO: make appParams an array and assemble the string in gulp common.
   appParams: ' "' + helper.getDeviceId(configPostfix) + '" "' + helper.getDeviceConnectionString(configPostfix) + '"'
 });

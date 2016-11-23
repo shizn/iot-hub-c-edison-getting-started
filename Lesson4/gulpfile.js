@@ -21,7 +21,7 @@ gulpCommon(gulp, 'edison-c', {
     "iot_device_connection_string": "[IoT device connection string]",
   },
   configPostfix: configPostfix,
-  app: ['main.c', 'CMakeLists.txt'],
+  app: ['main.c', 'certs.h', 'certs.c', 'CMakeLists.txt'],
   appParams: ' "' + helper.getDeviceConnectionString(configPostfix) + '"'
 });
 

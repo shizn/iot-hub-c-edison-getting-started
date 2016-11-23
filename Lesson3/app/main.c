@@ -12,7 +12,9 @@
 #include "azure_c_shared_utility/crt_abstractions.h"
 #include "iothub_client.h"
 #include "iothub_message.h"
-#include "iothubtransporthttp.h"
+#include "iothubtransportmqtt.h"
+
+#include "certs.h"
 
 static const int MAX_BLINK_TIMES = 20;
 static const int LED_PIN = 13;
@@ -92,15 +94,20 @@ int main(int argc, char *argv[])
     }
     else
     {
-        (void)printf("Starting the IoTHub client sample HTTP...\r\n");
+        (void)printf("Starting the IoTHub client sample MQTT...\r\n");
 
         IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle;
-        if ((iotHubClientHandle = IoTHubClient_LL_CreateFromConnectionString(argv[2], HTTP_Protocol)) == NULL)
+        if ((iotHubClientHandle = IoTHubClient_LL_CreateFromConnectionString(argv[2], MQTT_Protocol)) == NULL)
         {
             (void)printf("ERROR: iotHubClientHandle is NULL!\r\n");
         }
         else
         {
+            if (IoTHubClient_LL_SetOption(iotHubClientHandle, "TrustedCerts", certificates) != IOTHUB_CLIENT_OK)
+            {
+                printf("failure to set option \"TrustedCerts\"\r\n");
+            }
+
             while ((totalBlinkTimes <= MAX_BLINK_TIMES) || messagePending)
             {
                 if ((lastMessageSentTime + 2 <= getTimeInSecond()) && !messagePending)
