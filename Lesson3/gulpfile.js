@@ -32,7 +32,7 @@ gulpCommon(gulp, 'edison-c', {
   configPostfix: configPostfix,
   app: ['main.c', 'certs.h', 'certs.c', 'CMakeLists.txt'],
   // TODO: make appParams an array and assemble the string in gulp common.
-  appParams: ' "' + helper.getDeviceId(configPostfix) + '" "' + helper.getDeviceConnectionString(configPostfix) + '"'
+  appParams: ' "' + helper.getDeviceConnectionString(configPostfix) + '"'
 });
 
 var config = gulp.config;

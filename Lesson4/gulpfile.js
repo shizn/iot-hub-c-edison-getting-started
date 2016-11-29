@@ -8,6 +8,7 @@ var gulpCommon = require('gulp-common');
 var helper = gulpCommon.all;
 
 var configPostfix = "edison";
+
 /**
  * Setup common gulp tasks: init, install-tools, deploy, run
  */
@@ -40,18 +41,6 @@ gulp.task('send-cloud-to-device-messages', false, function () {
   var Message = require('azure-iot-common').Message;
   var client = require('azure-iothub').Client.fromConnectionString(config.iot_hub_connection_string);
 
-  // Get device id from IoT device connection string
-  var getDeviceId = function (connectionString) {
-    var elements = connectionString.split(';');
-    var dict = {};
-    for (var i = 0; i < elements.length; i++) {
-      var kvp = elements[i].split('=');
-      dict[kvp[0]] = kvp[1];
-    }
-    return dict.DeviceId;
-  };
-  var targetDevice = getDeviceId(config.iot_device_connection_string);
-
   // Build cloud-to-device message with message Id
   var buildMessage = function (messageId) {
     if (messageId < MAX_MESSAGE_COUNT) {
@@ -66,7 +55,7 @@ gulp.task('send-cloud-to-device-messages', false, function () {
     sentMessageCount++;
     var message = buildMessage(sentMessageCount);
     console.log('[IoT Hub] Sending message #' + sentMessageCount + ': ' + message.getData());
-    client.send(targetDevice, message, sendMessageCallback);
+    client.send(helper.getDeviceId(configPostfix), message, sendMessageCallback);
   };
 
   // Start another run after message is sent out
