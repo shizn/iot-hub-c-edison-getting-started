@@ -1,27 +1,14 @@
-language: node_js
-node_js:
-  - "6"
+language: c
+compiler: gcc
+
+install:
+  - sudo pip install cpplint
+
+script: 
+  - cpplint --filter=-whitespace/braces,-build/include_subdir,-whitespace/newline,-whitespace/line_length ./Lesson*/app/main.c  
+
+after_success:
+  - echo "Success"
   
-before_script:
-  - npm install gulp
-  - npm install gulp-eslint
-  
-script: gulp lint
-    
-notifications:
-  email:
-    on_success: change
-    on_failure: always
-    recipients:
-        - yungez@microsoft.com
-        - zhijzhao@microsoft.com
-        - kevinzha@microsoft.com
-        - yaozheng@microsoft.com
-        - yaweiw@microsoft.com
-        - yuwzho@microsoft.com
-        - reyang@microsoft.com
-        - zikalino@microsoft.com
-        - donzh@microsoft.com
-  
-matrix:
-  fast_finish: true
+after_failure:
+  - cat oclint.log
