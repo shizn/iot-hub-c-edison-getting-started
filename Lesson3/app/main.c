@@ -48,6 +48,8 @@ static void send_callback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void *user_c
     }
 
     g_is_message_pending = false;
+
+    IoTHubMessage_Destroy((IOTHUB_MESSAGE_HANDLE)user_context_callback);
 }
 
 static void send_message_and_blink(IOTHUB_CLIENT_LL_HANDLE iot_hub_client_handle, char *device_id)
@@ -62,7 +64,7 @@ static void send_message_and_blink(IOTHUB_CLIENT_LL_HANDLE iot_hub_client_handle
     }
     else
     {
-        if (IoTHubClient_LL_SendEventAsync(iot_hub_client_handle, message_handle, send_callback, NULL) != IOTHUB_CLIENT_OK)
+        if (IoTHubClient_LL_SendEventAsync(iot_hub_client_handle, message_handle, send_callback, message_handle) != IOTHUB_CLIENT_OK)
         {
             printf("[Device] ERROR: Failed to hand over the message to IoTHubClient\n");
         }
@@ -72,8 +74,6 @@ static void send_message_and_blink(IOTHUB_CLIENT_LL_HANDLE iot_hub_client_handle
             g_is_message_pending = true;
             printf("[Device] Sending message #%d: %s\n", g_total_blink_times, buffer);
         }
-
-        IoTHubMessage_Destroy(message_handle);
     }
 }
 
