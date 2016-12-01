@@ -1,14 +1,14 @@
-language: c
-compiler: gcc
-
-install:
-  - sudo pip install cpplint
-
-script: 
-  - cpplint --filter=-whitespace/braces,-build/include_subdir,-whitespace/newline,-whitespace/line_length ./Lesson*/app/main.c  
-
-after_success:
-  - echo "Success"
+language: node_js
+node_js:
+  - "6"
   
-after_failure:
-  - cat oclint.log
+before_script:
+  - npm install
+  
+script:
+  - gulp lint
+  - gulp cpplint
+
+  
+matrix:
+  fast_finish: true
