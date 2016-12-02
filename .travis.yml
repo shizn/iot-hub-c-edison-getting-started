@@ -3,25 +3,12 @@ node_js:
   - "6"
   
 before_script:
-  - npm install gulp
-  - npm install gulp-eslint
+  - npm install
   
-script: gulp lint
-    
-notifications:
-  email:
-    on_success: change
-    on_failure: always
-    recipients:
-        - yungez@microsoft.com
-        - zhijzhao@microsoft.com
-        - kevinzha@microsoft.com
-        - yaozheng@microsoft.com
-        - yaweiw@microsoft.com
-        - yuwzho@microsoft.com
-        - reyang@microsoft.com
-        - zikalino@microsoft.com
-        - donzh@microsoft.com
+script:
+  - gulp lint
+  - gulp cpplint
+
   
 matrix:
   fast_finish: true
