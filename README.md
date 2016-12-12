@@ -6,7 +6,7 @@ author: ZhijunZhao
 
 # Get Started with Microsoft Azure IoT Intel Edison Starter Kit
 
-This repo contains the source code to help you get familiar with Azure IoT using the Azure IoT Intel Edison Starter Kit. You will find the [lesson-based tutorials on Azure.com](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started).
+This repo contains the source code to help you get familiar with Azure IoT using the Azure IoT Intel Edison Starter Kit. You will find the [lesson-based tutorials on Docs.microsoft.com](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started).
 
 - [Lesson 1: Configure your device](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-lesson1-configure-your-device)
 - [Lesson 2: Create your IoT hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32)
