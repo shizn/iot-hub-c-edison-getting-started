@@ -5,13 +5,13 @@ author: ZhijunZhao
 ---
 
 # Configure an Intel Edison board and run a sample app on it
-This sample repo accompanies [Lesson 1: Configure your device](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-lesson1-configure-your-device/) lesson. It shows how to setup an Intel Edison board, deploy and run a sample application.
+This sample repo accompanies [Lesson 1: Configure your device](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-lesson1-configure-your-device) lesson. It shows how to setup an Intel Edison board, deploy and run a sample application.
 
 ## Repository information
 - `app` sub-folder contains the sample main.c application that blinks the LED attached to the Edison board and the CMakeLists.txt that builds the main.c source code.
 
 ## Running this sample
-Please follow the [Lesson 1: Configure your device](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-lesson1-configure-your-device/) for detailed walkthrough of the steps below.
+Please follow the [Lesson 1: Configure your device](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-lesson1-configure-your-device) for detailed walkthrough of the steps below.
 
 ### Install required tools
 

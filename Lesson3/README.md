@@ -5,10 +5,10 @@ author: ZhijunZhao
 ---
 
 # Send device-to-cloud messages
-This sample repo accompanies [Lesson 3: Send device-to-cloud messages](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template/) lesson. It shows how to send messages from an Intel Edison board to Azure IoT hub. It also demonstrates how to use an Azure function app to receive incoming IoT hub messages and persist them to Azure table storage.
+This sample repo accompanies [Lesson 3: Send device-to-cloud messages](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template) lesson. It shows how to send messages from an Intel Edison board to Azure IoT hub. It also demonstrates how to use an Azure function app to receive incoming IoT hub messages and persist them to Azure table storage.
 
 ## Prerequisites
-See [Lesson 3: Send device-to-cloud messages](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template/) for more information.
+See [Lesson 3: Send device-to-cloud messages](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template) for more information.
 
 ## Repository information
 - `app` sub-folder contains the sample main.c application that sends device-2-cloud messages and the CMakeLists.txt that builds main.c source code.
@@ -17,7 +17,7 @@ See [Lesson 3: Send device-to-cloud messages](https://docs.microsoft.com/en-us/a
 - `ReceiveDeviceMessages` sub-folder contains Node.js code for the Azure function.
 
 ## Running this sample
-Please follow the [Lesson 3: Send device-to-cloud messages](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template/) for detailed walkthrough of the steps below.
+Please follow the [Lesson 3: Send device-to-cloud messages](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template) for detailed walkthrough of the steps below.
 
 ### Deploy and run
 
