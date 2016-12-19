@@ -1,5 +1,5 @@
 {
   "project_folder": "./c-edison-lesson-1",
-  "start_file": "app",
+  "start_file": "lesson1",
   "ssh_port": 22
 }
