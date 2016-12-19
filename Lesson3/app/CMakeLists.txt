@@ -14,12 +14,12 @@ if(NOT "${azure_IoT_Sdks}" STREQUAL "OFF")
                      ${azure_IoT_Sdks}/c/cmake/iotsdk_linux/c-utility
                      ${azure_IoT_Sdks}/c/cmake/iotsdk_linux/umqtt)
 else()
-    include_directories(~/azure-iot-sdks/c/c-utility/inc
-                        ~/azure-iot-sdks/c/iothub_client/inc)
-    link_directories(~/azure-iot-sdks/c/cmake/iotsdk_linux/serializer
-                     ~/azure-iot-sdks/c/cmake/iotsdk_linux/iothub_client
-                     ~/azure-iot-sdks/c/cmake/iotsdk_linux/c-utility
-                     ~/azure-iot-sdks/c/cmake/iotsdk_linux/umqtt)
+    include_directories(~/azure-iot-sdk-c/c-utility/inc
+                        ~/azure-iot-sdk-c/iothub_client/inc)
+    link_directories(~/azure-iot-sdk-c/cmake/iotsdk_linux/serializer
+                     ~/azure-iot-sdk-c/cmake/iotsdk_linux/iothub_client
+                     ~/azure-iot-sdk-c/cmake/iotsdk_linux/c-utility
+                     ~/azure-iot-sdk-c/cmake/iotsdk_linux/umqtt)
 endif()
 
 add_executable(lesson3 main.c certs.c)
