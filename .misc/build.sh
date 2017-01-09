@@ -20,7 +20,7 @@ usage ()
     echo " -cl, --compileoption <value>  specify a compile option to be passed to gcc"
     echo "   Example: -cl -O1 -cl ..."
     echo " --toolchain-file <file>       pass cmake a toolchain file for cross compiling"
-    echo " --azure-iot-sdks <directory>  azure iot sdks lib root directory"    
+    echo " --azure-iot-sdk-c <directory>  azure iot sdks lib root directory"    
     exit 1
 }
 
@@ -50,7 +50,7 @@ process_args ()
           case "$arg" in              
               "-cl" | "--compileoption" ) save_next_arg=1;;
               "--toolchain-file" ) save_next_arg=2;;
-              "--azure-iot-sdks" ) save_next_arg=3;;
+              "--azure-iot-sdk-c" ) save_next_arg=3;;
               * ) usage;;
           esac
       fi
@@ -65,7 +65,7 @@ process_args ()
     if [ "$azureiotsdks" != " " ]
     then
       azureiotsdks=$(readlink -f $azureiotsdks)
-      azureiotsdks="-Dazure_IoT_Sdks=$azureiotsdks"
+      azureiotsdks="-Dazure_IoT_Sdk_c=$azureiotsdks"
     fi
 }
 
