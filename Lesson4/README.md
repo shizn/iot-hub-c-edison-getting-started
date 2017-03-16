@@ -4,7 +4,7 @@ platforms: C
 author: ZhijunZhao
 ---
 
-# Send device-to-cloud messages
+# Send cloud-to-device messages
 This sample repo accompanies [Lesson 4: Send cloud-to-device messages](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages) lesson. It shows how to send messages from an Azure IoT hub to an Intel Edison board.
 
 ## Prerequisites
